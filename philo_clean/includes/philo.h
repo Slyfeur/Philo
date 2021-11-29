@@ -6,7 +6,7 @@
 /*   By: tuytters <tuytters@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/11 11:27:21 by tuytters          #+#    #+#             */
-/*   Updated: 2021/11/09 09:28:38 by tuytters         ###   ########.fr       */
+/*   Updated: 2021/11/29 11:26:25 by tuytters         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@
 # include <sys/time.h>
 # include <stdlib.h>
 
-struct	s_env;
+// struct	s_env;
 
 typedef struct s_philo
 {
@@ -46,10 +46,33 @@ typedef struct s_env
 	pthread_mutex_t		*fork_i;
 }	t_env;
 
+/* FREE */
+
 void			all_free(t_env *env);
+
+/* ERROR */
+
 int				ft_error(char *str, t_env *env);
+
+/* CONVERT */
+
 long long		ft_atoi(const char *nptr);
 unsigned long	ft_time(void);
+
+/* UTILS */
+
 unsigned long	ft_start(void);
+void			ft_sleep(unsigned long long time, t_env *env);
+
+/* PHILO_UTILS */
+
+void			eat_philo(t_philo *philo);
+void			*routine(void *param);
+
+/* INIT */
+
+int	ft_init_philo(t_env *env);
+int	ft_init_mutex(t_env *env);
+int	ft_init_env(t_env *env, int argc, char **argv);
 
 #endif
