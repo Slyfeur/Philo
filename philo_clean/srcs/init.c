@@ -6,7 +6,7 @@
 /*   By: tuytters <tuytters@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/29 11:14:39 by tuytters          #+#    #+#             */
-/*   Updated: 2021/12/01 09:18:44 by tuytters         ###   ########.fr       */
+/*   Updated: 2021/12/01 12:35:40 by tuytters         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,13 +16,18 @@ int	ft_init_env(t_env *env, int argc, char **argv)
 {
 	env->init_mutex = 0;
 	env->die = 0;
+	env->philo_eat = 0;
+	env->arg6 = 0;
 	env->nb_philo = ft_atoi(argv[1]);
 	env->time_die = ft_atoi(argv[2]);
 	env->time_eat = ft_atoi(argv[3]);
 	env->time_sleep = ft_atoi(argv[4]);
 	env->time_to_go = ft_start();
 	if (argc == 6)
+	{
 		env->eat_max = ft_atoi(argv[5]);
+		env->arg6 = 1;
+	}
 	else
 		env->eat_max = 0;
 	if (env->nb_philo < 1 || env->time_die < 0 || env->time_eat < 0
@@ -64,7 +69,6 @@ int	ft_init_philo(t_env *env)
 		env->philo_i[i].lfork = i;
 		env->philo_i[i].rfork = (i + 1) % env->nb_philo;
 		env->philo_i[i].env = env;
-		env->philo_i[i].max_eat = 0;
 		i++;
 	}
 	ft_init_mutex(env);

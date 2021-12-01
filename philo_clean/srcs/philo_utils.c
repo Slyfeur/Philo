@@ -6,7 +6,7 @@
 /*   By: tuytters <tuytters@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/29 10:44:38 by tuytters          #+#    #+#             */
-/*   Updated: 2021/12/01 09:22:19 by tuytters         ###   ########.fr       */
+/*   Updated: 2021/12/01 12:38:14 by tuytters         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,7 +37,12 @@ void	eat_philo(t_philo *philo)
 	write_rout("is eating", philo, philo->pos);
 	philo->env->philo_i[philo->pos].last_eat = (ft_time()
 			- philo->env->time_to_go);
-	philo->max_eat++;
+	philo->env->philo_eat++;
+	if (philo->env->philo_eat == philo->env->nb_philo && philo->env->arg6 == 1)
+	{
+		philo->env->eat_max--;
+		philo->env->philo_eat = 0;
+	}
 	ft_sleep(philo->env->time_eat, philo->env);
 	pthread_mutex_unlock(&philo->env->fork_i[philo->lfork]);
 	pthread_mutex_unlock(&philo->env->fork_i[philo->rfork]);
@@ -61,15 +66,15 @@ void	*routine(void *param)
 		write_rout("is thinking", philo, philo->pos);
 		ft_sleep(env->time_eat / 50, env);
 	}
-	while (!env->die /*&& env->eat_max > philo->max_eat*/)
+	while (!env->die && env->eat_max)
 	{
 		eat_philo(philo);
-		/*if (env->eat_max > philo->max_eat)
-		{*/
+		if (env->eat_max)
+		{
 			write_rout("is sleeping", philo, philo->pos);
 			ft_sleep(env->time_sleep, env);
 			write_rout("is thinking", philo, philo->pos);
-		/*}*/
+		}
 	}
 	return (NULL);
 }

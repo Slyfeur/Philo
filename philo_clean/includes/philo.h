@@ -6,7 +6,7 @@
 /*   By: tuytters <tuytters@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/11 11:27:21 by tuytters          #+#    #+#             */
-/*   Updated: 2021/12/01 09:16:39 by tuytters         ###   ########.fr       */
+/*   Updated: 2021/12/01 12:35:23 by tuytters         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,6 @@ typedef struct s_philo
 	int					pos;
 	int					lfork;
 	int					rfork;
-	int					max_eat;
 	unsigned long long	last_eat;
 	struct s_env		*env;
 	pthread_t			thread_id;
@@ -41,6 +40,8 @@ typedef struct s_env
 	int					eat_max;
 	int					die;
 	int					init_mutex;
+	int					philo_eat;
+	int					arg6;
 	unsigned long long	time_to_go;
 	t_philo				*philo_i;
 	pthread_mutex_t		*fork_i;
