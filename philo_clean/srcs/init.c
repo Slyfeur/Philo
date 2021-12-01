@@ -6,7 +6,7 @@
 /*   By: tuytters <tuytters@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/29 11:14:39 by tuytters          #+#    #+#             */
-/*   Updated: 2021/11/29 11:15:07 by tuytters         ###   ########.fr       */
+/*   Updated: 2021/12/01 09:18:44 by tuytters         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,10 +25,10 @@ int	ft_init_env(t_env *env, int argc, char **argv)
 		env->eat_max = ft_atoi(argv[5]);
 	else
 		env->eat_max = 0;
-	if (env->nb_philo < 1 || env->time_die < 0 || env->time_eat < 0 ||
-		env->time_sleep < 0 || env->eat_max < 0)
+	if (env->nb_philo < 1 || env->time_die < 0 || env->time_eat < 0
+		|| env->time_sleep < 0 || env->eat_max < 0)
 		return (1);
-	return(0);
+	return (0);
 }
 
 int	ft_init_mutex(t_env *env)
@@ -42,7 +42,7 @@ int	ft_init_mutex(t_env *env)
 	env->init_mutex = 1;
 	while (i < env->nb_philo)
 	{
-		if(pthread_mutex_init(&(env->fork_i[i]), NULL))
+		if (pthread_mutex_init(&(env->fork_i[i]), NULL))
 			return (1);
 		i++;
 	}
@@ -51,7 +51,7 @@ int	ft_init_mutex(t_env *env)
 
 int	ft_init_philo(t_env *env)
 {
-	int i;
+	int	i;
 
 	i = 0;
 	env->philo_i = malloc(sizeof(t_philo) * env->nb_philo);

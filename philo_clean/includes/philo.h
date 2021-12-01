@@ -6,7 +6,7 @@
 /*   By: tuytters <tuytters@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/11 11:27:21 by tuytters          #+#    #+#             */
-/*   Updated: 2021/12/01 08:40:36 by tuytters         ###   ########.fr       */
+/*   Updated: 2021/12/01 09:16:39 by tuytters         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -74,8 +74,8 @@ void			*routine(void *param);
 
 /* INIT */
 
-int	ft_init_philo(t_env *env);
-int	ft_init_mutex(t_env *env);
-int	ft_init_env(t_env *env, int argc, char **argv);
+int				ft_init_philo(t_env *env);
+int				ft_init_mutex(t_env *env);
+int				ft_init_env(t_env *env, int argc, char **argv);
 
 #endif

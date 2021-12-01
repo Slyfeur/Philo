@@ -6,7 +6,7 @@
 /*   By: tuytters <tuytters@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/18 10:08:08 by tuytters          #+#    #+#             */
-/*   Updated: 2021/12/01 08:40:24 by tuytters         ###   ########.fr       */
+/*   Updated: 2021/12/01 09:20:34 by tuytters         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,17 +23,18 @@ unsigned long	ft_time(void)
 unsigned long	ft_start(void)
 {
 	usleep(700000);
-	return(ft_time());
+	return (ft_time());
 }
 
 void	ft_sleep(unsigned long long time, t_env *env)
 {
-	unsigned long long start;
+	unsigned long long	start;
+
 	start = ft_time();
 	while (!env->die)
 	{
-		if(ft_time() - start >= time)
-			break;
+		if (ft_time() - start >= time)
+			break ;
 		usleep(env->nb_philo);
 	}
 }

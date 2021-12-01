@@ -6,7 +6,7 @@
 /*   By: tuytters <tuytters@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/18 11:00:58 by tuytters          #+#    #+#             */
-/*   Updated: 2021/11/29 11:08:50 by tuytters         ###   ########.fr       */
+/*   Updated: 2021/12/01 09:17:58 by tuytters         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 void	all_free(t_env *env)
 {
 	int	i;
-	
+
 	i = 0;
 	if (env->init_mutex == 1)
 		while (i < env->nb_philo)
