@@ -6,7 +6,7 @@
 /*   By: tuytters <tuytters@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/11 10:56:58 by tuytters          #+#    #+#             */
-/*   Updated: 2021/11/29 11:30:15 by tuytters         ###   ########.fr       */
+/*   Updated: 2021/12/01 09:14:57 by tuytters         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,6 +28,12 @@ int	main(int argc, char **argv)
 		ft_init_env(env, argc, argv);
 		if (ft_init_philo(env) == 1)
 			ft_error("Error, bad init.", env);
+		if (env->nb_philo == 1)
+		{
+			printf("0 1 died\n");
+			all_free(env);
+			return (0);
+		}
 		i = -1;
 		while (++i < env->nb_philo)
 			if (pthread_create(&env->philo_i[i].thread_id, NULL, routine, &(env->philo_i[i])))

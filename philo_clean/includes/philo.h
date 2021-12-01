@@ -6,7 +6,7 @@
 /*   By: tuytters <tuytters@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/11 11:27:21 by tuytters          #+#    #+#             */
-/*   Updated: 2021/11/29 11:26:25 by tuytters         ###   ########.fr       */
+/*   Updated: 2021/12/01 08:40:36 by tuytters         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,11 +58,14 @@ int				ft_error(char *str, t_env *env);
 
 long long		ft_atoi(const char *nptr);
 unsigned long	ft_time(void);
+char			*ft_itoa(int n);
 
 /* UTILS */
 
 unsigned long	ft_start(void);
 void			ft_sleep(unsigned long long time, t_env *env);
+size_t			ft_strlen(const char *s);
+size_t			ft_digilen(int position);
 
 /* PHILO_UTILS */
 
