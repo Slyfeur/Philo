@@ -6,7 +6,7 @@
 /*   By: tuytters <tuytters@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/11 10:56:58 by tuytters          #+#    #+#             */
-/*   Updated: 2021/12/01 09:17:22 by tuytters         ###   ########.fr       */
+/*   Updated: 2021/12/01 12:18:03 by tuytters         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,8 @@ int	main(int argc, char **argv)
 			ft_error("Error, bad init.", env);
 		if (env->nb_philo == 1)
 		{
-			printf("0 1 died\n");
+			printf("0 1 has taken a fork\n");
+			printf("%llu 1 died\n", env->time_die);
 			all_free(env);
 			return (0);
 		}
