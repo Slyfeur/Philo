@@ -6,7 +6,7 @@
 /*   By: tuytters <tuytters@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/11 11:27:21 by tuytters          #+#    #+#             */
-/*   Updated: 2021/12/02 11:25:20 by tuytters         ###   ########.fr       */
+/*   Updated: 2021/12/02 15:10:48 by tuytters         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,7 +61,6 @@ int				ft_error(char *str, t_env *env);
 
 long long		ft_atoi(const char *nptr);
 unsigned long	ft_time(void);
-char			*ft_itoa(int n);
 
 /* UTILS */
 
@@ -71,6 +70,7 @@ void			ft_sleep(unsigned long long time, t_env *env);
 /* PHILO_UTILS */
 
 void			eat_philo(t_philo *philo);
+void			ft_die(t_env *env, t_philo *philo);
 void			*routine(void *param);
 
 /* INIT */

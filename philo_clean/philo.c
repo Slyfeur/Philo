@@ -6,7 +6,7 @@
 /*   By: tuytters <tuytters@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/11 10:56:58 by tuytters          #+#    #+#             */
-/*   Updated: 2021/12/01 14:05:26 by tuytters         ###   ########.fr       */
+/*   Updated: 2021/12/02 15:07:41 by tuytters         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,6 +40,8 @@ int	main(int argc, char **argv)
 			if (pthread_create(&env->philo_i[i].thread_id,
 					NULL, routine, &(env->philo_i[i])))
 				return (1);
+		ft_die(env, env->philo_i);
+		pthread_mutex_unlock(&env->write);
 		i = 0;
 		while (i < env->nb_philo)
 			pthread_join(env->philo_i[i++].thread_id, NULL);
