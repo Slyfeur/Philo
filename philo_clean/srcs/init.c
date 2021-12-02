@@ -6,7 +6,7 @@
 /*   By: tuytters <tuytters@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/29 11:14:39 by tuytters          #+#    #+#             */
-/*   Updated: 2021/12/01 12:35:40 by tuytters         ###   ########.fr       */
+/*   Updated: 2021/12/02 09:18:56 by tuytters         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,7 @@ int	ft_init_env(t_env *env, int argc, char **argv)
 		env->arg6 = 1;
 	}
 	else
-		env->eat_max = 0;
+		env->eat_max = 1;
 	if (env->nb_philo < 1 || env->time_die < 0 || env->time_eat < 0
 		|| env->time_sleep < 0 || env->eat_max < 0)
 		return (1);
@@ -45,6 +45,8 @@ int	ft_init_mutex(t_env *env)
 	if (!env->fork_i)
 		ft_error("Malloc failed", env);
 	env->init_mutex = 1;
+	pthread_mutex_init(&(env->write), NULL);
+	pthread_mutex_init(&(env->eat), NULL);
 	while (i < env->nb_philo)
 	{
 		if (pthread_mutex_init(&(env->fork_i[i]), NULL))

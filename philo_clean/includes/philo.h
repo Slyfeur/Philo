@@ -6,7 +6,7 @@
 /*   By: tuytters <tuytters@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/11 11:27:21 by tuytters          #+#    #+#             */
-/*   Updated: 2021/12/01 12:35:23 by tuytters         ###   ########.fr       */
+/*   Updated: 2021/12/02 11:25:20 by tuytters         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,6 +45,8 @@ typedef struct s_env
 	unsigned long long	time_to_go;
 	t_philo				*philo_i;
 	pthread_mutex_t		*fork_i;
+	pthread_mutex_t		write;
+	pthread_mutex_t		eat;
 }	t_env;
 
 /* FREE */
@@ -65,8 +67,6 @@ char			*ft_itoa(int n);
 
 unsigned long	ft_start(void);
 void			ft_sleep(unsigned long long time, t_env *env);
-size_t			ft_strlen(const char *s);
-size_t			ft_digilen(int position);
 
 /* PHILO_UTILS */
 
