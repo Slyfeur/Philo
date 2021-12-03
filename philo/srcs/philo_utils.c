@@ -6,7 +6,7 @@
 /*   By: tuytters <tuytters@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/29 10:44:38 by tuytters          #+#    #+#             */
-/*   Updated: 2021/12/03 08:58:14 by tuytters         ###   ########.fr       */
+/*   Updated: 2021/12/03 10:00:18 by tuytters         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,9 +26,9 @@ void	write_rout(char *txt, t_philo *philo, int pos)
 void	eat_philo(t_philo *philo)
 {
 	pthread_mutex_lock(&philo->env->fork_i[philo->lfork]);
-	write_rout("has taken a fork left", philo, philo->pos);
+	write_rout("has taken a fork", philo, philo->pos);
 	pthread_mutex_lock(&philo->env->fork_i[philo->rfork]);
-	write_rout("has taken a fork right", philo, philo->pos);
+	write_rout("has taken a fork", philo, philo->pos);
 	pthread_mutex_lock(&philo->env->eat);
 	philo->env->philo_i[philo->pos - 1].last_eat = (ft_time()
 			- philo->env->time_to_go);
