@@ -6,7 +6,7 @@
 /*   By: tuytters <tuytters@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/11 11:27:21 by tuytters          #+#    #+#             */
-/*   Updated: 2021/12/02 15:10:48 by tuytters         ###   ########.fr       */
+/*   Updated: 2021/12/03 08:30:06 by tuytters         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,8 +18,6 @@
 # include <unistd.h>
 # include <sys/time.h>
 # include <stdlib.h>
-
-// struct	s_env;
 
 typedef struct s_philo
 {
@@ -42,6 +40,7 @@ typedef struct s_env
 	int					init_mutex;
 	int					philo_eat;
 	int					arg6;
+	int					all_philo_create;
 	unsigned long long	time_to_go;
 	t_philo				*philo_i;
 	pthread_mutex_t		*fork_i;

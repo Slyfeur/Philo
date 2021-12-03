@@ -6,15 +6,33 @@
 /*   By: tuytters <tuytters@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/11 10:56:58 by tuytters          #+#    #+#             */
-/*   Updated: 2021/12/02 15:07:41 by tuytters         ###   ########.fr       */
+/*   Updated: 2021/12/03 08:42:59 by tuytters         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "includes/philo.h"
 
+int	start_thread(t_env *env)
+{
+	int	i;
+
+	i = -1;
+	while (++i < env->nb_philo)
+		if (pthread_create(&env->philo_i[i].thread_id,
+				NULL, routine, &(env->philo_i[i])))
+			return (1);
+	if (i == env->nb_philo)
+		env->all_philo_create = 1;
+	ft_die(env, env->philo_i);
+	pthread_mutex_unlock(&env->write);
+	i = 0;
+	while (i < env->nb_philo)
+		pthread_join(env->philo_i[i++].thread_id, NULL);
+	return (0);
+}
+
 int	main(int argc, char **argv)
 {
-	int			i;
 	t_env		*env;
 
 	env = NULL;
@@ -35,16 +53,7 @@ int	main(int argc, char **argv)
 			all_free(env);
 			return (0);
 		}
-		i = -1;
-		while (++i < env->nb_philo)
-			if (pthread_create(&env->philo_i[i].thread_id,
-					NULL, routine, &(env->philo_i[i])))
-				return (1);
-		ft_die(env, env->philo_i);
-		pthread_mutex_unlock(&env->write);
-		i = 0;
-		while (i < env->nb_philo)
-			pthread_join(env->philo_i[i++].thread_id, NULL);
+		start_thread(env);
 		all_free(env);
 	}
 	return (0);

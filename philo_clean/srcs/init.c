@@ -6,7 +6,7 @@
 /*   By: tuytters <tuytters@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/29 11:14:39 by tuytters          #+#    #+#             */
-/*   Updated: 2021/12/02 09:18:56 by tuytters         ###   ########.fr       */
+/*   Updated: 2021/12/03 08:30:42 by tuytters         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,7 @@ int	ft_init_env(t_env *env, int argc, char **argv)
 	env->die = 0;
 	env->philo_eat = 0;
 	env->arg6 = 0;
+	env->all_philo_create = 0;
 	env->nb_philo = ft_atoi(argv[1]);
 	env->time_die = ft_atoi(argv[2]);
 	env->time_eat = ft_atoi(argv[3]);
