@@ -6,7 +6,7 @@
 /*   By: tuytters <tuytters@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/18 11:00:58 by tuytters          #+#    #+#             */
-/*   Updated: 2021/12/02 15:09:54 by tuytters         ###   ########.fr       */
+/*   Updated: 2021/12/03 13:43:24 by tuytters         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,4 +28,6 @@ void	all_free(t_env *env)
 		free(env->philo_i);
 	if (env->fork_i)
 		free(env->fork_i);
+	if (env)
+		free(env);
 }

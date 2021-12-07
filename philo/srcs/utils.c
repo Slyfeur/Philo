@@ -6,11 +6,29 @@
 /*   By: tuytters <tuytters@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/18 10:08:08 by tuytters          #+#    #+#             */
-/*   Updated: 2021/12/02 11:25:15 by tuytters         ###   ########.fr       */
+/*   Updated: 2021/12/03 13:47:33 by tuytters         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/philo.h"
+
+int	check_digit(char **argv)
+{
+	int	i;
+	int	j;
+
+	i = 0;
+	while (argv[++i])
+	{
+		j = -1;
+		while (argv[i][++j])
+		{
+			if (ft_isdigit(argv[i][j]) == 0)
+				return (1);
+		}
+	}
+	return (0);
+}
 
 unsigned long	ft_time(void)
 {

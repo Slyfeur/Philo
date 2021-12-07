@@ -6,7 +6,7 @@
 /*   By: tuytters <tuytters@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/11 11:27:21 by tuytters          #+#    #+#             */
-/*   Updated: 2021/12/03 10:09:18 by tuytters         ###   ########.fr       */
+/*   Updated: 2021/12/06 15:14:42 by tuytters         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,6 +25,7 @@ typedef struct s_philo
 	int					lfork;
 	int					rfork;
 	unsigned long long	last_eat;
+	int					eat;
 	struct s_env		*env;
 	pthread_t			thread_id;
 }	t_philo;
@@ -58,11 +59,13 @@ int				ft_error(char *str, t_env *env);
 
 /* CONVERT */
 
+int				ft_isdigit(int c);
 long long		ft_atoi(const char *nptr);
-unsigned long	ft_time(void);
 
 /* UTILS */
 
+int				check_digit(char **argv);
+unsigned long	ft_time(void);
 unsigned long	ft_start(void);
 void			ft_sleep(unsigned long long time, t_env *env);
 

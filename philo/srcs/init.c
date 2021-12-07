@@ -6,7 +6,7 @@
 /*   By: tuytters <tuytters@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/29 11:14:39 by tuytters          #+#    #+#             */
-/*   Updated: 2021/12/03 09:33:22 by tuytters         ###   ########.fr       */
+/*   Updated: 2021/12/07 08:29:20 by tuytters         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,8 @@
 
 int	ft_init_env(t_env *env, int argc, char **argv)
 {
+	if (check_digit(argv) == 1)
+		return (1);
 	env->init_mutex = 0;
 	env->die = 0;
 	env->philo_eat = 0;
@@ -75,6 +77,7 @@ int	ft_init_philo(t_env *env)
 	}
 	while (i < env->nb_philo)
 	{
+		env->philo_i[i].eat = 0;
 		env->philo_i[i].last_eat = 0;
 		env->philo_i[i].pos = i + 1;
 		env->philo_i[i].lfork = i;
